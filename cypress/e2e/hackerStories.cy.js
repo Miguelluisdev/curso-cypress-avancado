@@ -67,6 +67,14 @@ describe("Hacker Stories", () => {
       cy.contains(`button`, initialTerm).should("be.visible");
     });
 
+    it.only("types and submits the form directly", () => {
+      cy.get("#search").type(newTerm);
+      cy.get("form").submit();
+      cy.wait("@searchStories");
+
+      cy.get(".item").should("have.length", 20);
+    });
+
     context("Last searches", () => {
       it("searches via the last searched term", () => {
         cy.get("#search").type(`${newTerm}{enter}`);
