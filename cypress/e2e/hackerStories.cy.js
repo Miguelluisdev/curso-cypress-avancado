@@ -129,4 +129,31 @@ context("Errors", () => {
       .should("be.visible")
       .and("contain", "Something went wrong ...");
   });
+
+  context("Localstorage exercise", () => {
+    beforeEach(() => {
+      cy.visit("/");
+    });
+    it("deve salvar o último termo buscado no localStorage", () => {
+      const termo = "Cypress";
+
+      cy.get("#search").clear().type(`${termo}{enter}`);
+
+      cy.getLocalStorage("search").should("be.equal", termo);
+      cy.reload();
+    });
+  });
+
+  it.only('shows a "Loading ..." state before showing the results', () => {
+    cy.intercept("GET", "**/search?query=React&page=0", {
+      delay: 1000 ,
+      fixture:'stories20.json'
+    }).as("getInitialStoriesDelayed");
+
+    cy.visit("/");
+    cy.assertLoadingIsShownAndHidden();
+    cy.wait("@getInitialStoriesDelayed");
+
+    cy.get(".item").should("have.length", 20);
+  });
 });
