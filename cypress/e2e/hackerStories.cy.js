@@ -67,7 +67,7 @@ describe("Hacker Stories", () => {
       cy.contains(`button`, initialTerm).should("be.visible");
     });
 
-    it.only("types and submits the form directly", () => {
+    it("types and submits the form directly", () => {
       cy.get("#search").type(newTerm);
       cy.get("form").submit();
       cy.wait("@searchStories");
@@ -97,5 +97,31 @@ describe("Hacker Stories", () => {
         cy.get(".last-searches button").should("have.length", 5);
       });
     });
+  });
+});
+
+context("Errors", () => {
+  it('shows "Something went wrong ..." in case of a server error', () => {
+    cy.intercept("GET", "**/search**", { statusCode: 500 }).as(
+      "getServerError"
+    );
+
+    cy.visit("/");
+    cy.wait("@getServerError");
+    cy.get("p:contains(Something went wrong ...)")
+      .should("be.visible")
+      .and("contain", "Something went wrong ...");
+  });
+
+  it('shows "Something went wrong ..." in case of a network error', () => {
+    cy.intercept("GET", "**/search**", { forceNetworkError: true }).as(
+      "getNetworkError"
+    );
+
+    cy.visit("/");
+    cy.wait("@getNetworkError");
+    cy.get("p:contains(Something went wrong ...)")
+      .should("be.visible")
+      .and("contain", "Something went wrong ...");
   });
 });
