@@ -86,12 +86,17 @@ describe("Hacker Stories", () => {
         cy.contains(`button`, newTerm).should("be.visible");
       });
 
-      it("shows a max of 5 buttons for the last searched terms", () => {
-        cy.intercept("GET", "**/search**").as("getRandomStories");
+      it("shows a max of 5 buttons for the last searched terms with empty results", () => {
+        cy.intercept("GET", "**/search**", {
+          statusCode: 200,
+          body: {
+            hits: [],
+          },
+        }).as("getEmptyStories");
 
         Cypress._.times(6, () => {
           cy.get("#search").clear().type(`${faker.word.noun()}{enter}`);
-          cy.wait("@getRandomStories");
+          cy.wait("@getEmptyStories");
         });
 
         cy.get(".last-searches button").should("have.length", 5);

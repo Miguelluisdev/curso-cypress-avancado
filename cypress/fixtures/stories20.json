@@ -1,0 +1,28 @@
+{
+  "hits": [
+    { "title": "Story 1", "author": "Author 1", "url": "http://example.com/story-1", "objectID": "1" },
+    { "title": "Story 2", "author": "Author 2", "url": "http://example.com/story-2", "objectID": "2" },
+    { "title": "Story 3", "author": "Author 3", "url": "http://example.com/story-3", "objectID": "3" },
+    { "title": "Story 4", "author": "Author 4", "url": "http://example.com/story-4", "objectID": "4" },
+    { "title": "Story 5", "author": "Author 5", "url": "http://example.com/story-5", "objectID": "5" },
+    { "title": "Story 6", "author": "Author 6", "url": "http://example.com/story-6", "objectID": "6" },
+    { "title": "Story 7", "author": "Author 7", "url": "http://example.com/story-7", "objectID": "7" },
+    { "title": "Story 8", "author": "Author 8", "url": "http://example.com/story-8", "objectID": "8" },
+    { "title": "Story 9", "author": "Author 9", "url": "http://example.com/story-9", "objectID": "9" },
+    { "title": "Story 10", "author": "Author 10", "url": "http://example.com/story-10", "objectID": "10" },
+    { "title": "Story 11", "author": "Author 11", "url": "http://example.com/story-11", "objectID": "11" },
+    { "title": "Story 12", "author": "Author 12", "url": "http://example.com/story-12", "objectID": "12" },
+    { "title": "Story 13", "author": "Author 13", "url": "http://example.com/story-13", "objectID": "13" },
+    { "title": "Story 14", "author": "Author 14", "url": "http://example.com/story-14", "objectID": "14" },
+    { "title": "Story 15", "author": "Author 15", "url": "http://example.com/story-15", "objectID": "15" },
+    { "title": "Story 16", "author": "Author 16", "url": "http://example.com/story-16", "objectID": "16" },
+    { "title": "Story 17", "author": "Author 17", "url": "http://example.com/story-17", "objectID": "17" },
+    { "title": "Story 18", "author": "Author 18", "url": "http://example.com/story-18", "objectID": "18" },
+    { "title": "Story 19", "author": "Author 19", "url": "http://example.com/story-19", "objectID": "19" },
+    { "title": "Story 20", "author": "Author 20", "url": "http://example.com/story-20", "objectID": "20" }
+  ],
+  "nbHits": 1000,
+  "page": 0,
+  "nbPages": 50,
+  "hitsPerPage": 20
+}
